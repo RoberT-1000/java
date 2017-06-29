@@ -1,17 +1,18 @@
 import javax.swing.*;
+
 import java.text.NumberFormat;
  
 public class TestAccountApplication {
  
-    public static void main(String[] args) throws java.io.IOException {
-        String strName, strType, strAmt;
-        double amount;
-        NumberFormat fmt1 = NumberFormat.getCurrencyInstance();
-        char choice, ignore;
-        Object[] objArray = new Object[4];
-        int i = 0, index = 0;
+       public static void main(String[] args) throws java.io.IOException {
+        	String strName, strType, strAmt;
+        	double amount;
+			NumberFormat fmt1 = NumberFormat.getCurrencyInstance();
+			char choice, ignore;
+			Object[] objArray = new Object[4];
+			int i = 0, index = 0;
 		
-        for(;;) {
+			for(;;) {
 			      do {
 			            System.out.println("Personal Banking System Menu");
 			            System.out.println("Make a Selection on: \n");
@@ -48,76 +49,82 @@ public class TestAccountApplication {
 			      System.out.println('\n');
 					
 			      switch(choice) {
-			          case '1':
-				            strName = JOptionPane.showInputDialog("Enter an account name:");
-				            CheckingAccount cac = new CheckingAccount(strName, "checking", 0);
-				            objArray[index++] = cac;
-				            System.out.println("A new checking account is created and added to the system.");
-				            break;
-				        case '2':
-				    		    strName = JOptionPane.showInputDialog("Enter an account name:");
-				    		    SavingsAccount sac = new SavingsAccount(strName, "savings", 0);
-				    		    objArray[index++] = sac;
-				    		    System.out.println("A new savings account is created and added to the system.");
-				    		    break;
-				         case '3':
-				             strType = JOptionPane.showInputDialog("Enter an account type (checking/savings):");
-				             strName = JOptionPane.showInputDialog("Enter an account name:");
-				             for(i=0; i<index; i++) {
-				        	       if(((Account)objArray[i]).getType().equals(strType) && ((Account)objArray[i]).getName().equals(strName)) { 
-				        		         strAmt = JOptionPane.showInputDialog("Enter the amount to deposit:");
-				        		         double m = Double.parseDouble(strAmt);
-				        		         ((Account)objArray[i]).deposit(m);
-				        		         System.out.println(fmt1.format(m) + " is deposited into " + strName + " " + strType + " account");
-				        		         break;
-				        	       }
-				             }
-				             if(i == index) {
+			      	case '1':
+				           strName = JOptionPane.showInputDialog("Enter an account name:");
+				           CheckingAccount cac = new CheckingAccount(strName, "checking", 0);
+				           objArray[index++] = cac;
+				           System.out.println("A new checking account is created and added to the system.");
+				           break;
+				    case '2':
+				    		strName = JOptionPane.showInputDialog("Enter an account name:");
+				    		SavingsAccount sac = new SavingsAccount(strName, "savings", 0);
+				    		objArray[index++] = sac;
+				    		System.out.println("A new savings account is created and added to the system.");
+				    		break;
+				     case '3':
+				           strType = JOptionPane.showInputDialog("Enter an account type (checking/savings):");
+				           strName = JOptionPane.showInputDialog("Enter an account name:");
+				           for(i=0; i<index; i++) {
+				        	   if(((Account)objArray[i]).getType().equals(strType) && ((Account)objArray[i]).getName().equals(strName)){ 
+				        		   strAmt = JOptionPane.showInputDialog("Enter the amount to deposit:");
+				        		   double m = Double.parseDouble(strAmt);
+				        		   ((Account)objArray[i]).deposit(m);
+				        		   System.out.println(fmt1.format(m) + " is deposited into " + strName + " " + strType + " account");
+				        		   break;
+				        	   }
+				           }
+				           if(i == index) {
 				                 System.out.println("No " + strType + " account for " + strName);
-				             }
-				             break;
-				         case '4':
-				             strType = JOptionPane.showInputDialog("Enter an account type (checking/savings):");
-				             strName = JOptionPane.showInputDialog("Enter an account name:");
-				             for(i=0; i<index; i++) {
-				        	       if(((Account)objArray[i]).getType().equals(strType) && ((Account)objArray[i]).getName().equals(strName)) {
-				        		         double bl = ((Account)objArray[i]).getBalance();
-				        		         System.out.println("The balance for " + strName + " in " + strType + " is: " + fmt1.format(bl));
-				        		         break;
+				           }
+				           break;
+				     case '4':
+				           strType = JOptionPane.showInputDialog("Enter an account type (checking/savings):");
+				           strName = JOptionPane.showInputDialog("Enter an account name:");
+				           for(i=0; i<index; i++) {
+				        	   if(((Account)objArray[i]).getType().equals(strType) && ((Account)objArray[i]).getName().equals(strName)) {
+				        		   double bl = ((Account)objArray[i]).getBalance();
+				        		   System.out.println("The balance for " + strName + " in " + strType + 
+				        				   " is: " + fmt1.format(bl));
+				        		   break;
 				                 }
-				             }
-				             if(i == index) {
+				           }
+				           if(i == index) {
 				                 System.out.println("No " + strType + " account for " + strName);
-				             }
-				             break;
-				         case '5':
-				             strType = JOptionPane.showInputDialog("Enter an account type (checking/savings):");
-				             strName = JOptionPane.showInputDialog("Enter an account name:");
-				             for(i=0; i<index; i++) {
-				        	       if(((Account)objArray[i]).getType().equals(strType) && ((Account)objArray[i]).getName().equals(strName)) { 
-				        		         strAmt = JOptionPane.showInputDialog("Enter the amount to withdraw:");
-			       	        		   double m = Double.parseDouble(strAmt);
-				              		   double x = ((Account)objArray[i]).withdraw(m);
-				        		         System.out.println(fmt1.format(x) + " has been withdrawn from " + strName + " " + 
-				        				         strType + " account" + " and the remaining balance is " + 
-				        				         fmt1.format((((Account)objArray[i]).getBalance())));
-				        		         break;
-				        	       }
-				             }
-				             if(i == index) {
+				           }
+				           break;
+				     case '5':
+				           strType = JOptionPane.showInputDialog("Enter an account type (checking/savings):");
+				           strName = JOptionPane.showInputDialog("Enter an account name:");
+				           for(i=0; i<index; i++) {
+				        	   if(((Account)objArray[i]).getType().equals(strType) && ((Account)objArray[i]).getName().equals(strName)){ 
+				        		   strAmt = JOptionPane.showInputDialog("Enter the amount to withdraw:");
+				        		   double m = Double.parseDouble(strAmt);
+				        		   double x = ((Account)objArray[i]).withdraw(m);
+				        		   System.out.println(fmt1.format(x) + " has been withdrawn from " + strName + " " + 
+				        				   strType + " account" + " and the remaining balance is " + 
+				        				   fmt1.format((((Account)objArray[i]).getBalance())));
+				        		   break;
+				        	   }
+				           }
+				           if(i == index) {
 				                 System.out.println("No " + strType + " account for " + strName);
-				             }
-				             break;
-				          case '6':
-				    	        strType = JOptionPane.showInputDialog("Enter an account type (checking/savings):");
-				    	        strName = JOptionPane.showInputDialog("Enter an account name:");
-				    	        for(i=0; i<index; i++) {
-				    		          if(((Account)objArray[i]).getType().equals(strType) && ((Account)objArray[i]).getName().equals(strName)) {
-					    	  
-				    		          }
-				    	        }		 	      
-			            }
-			        }  
-          }
-      }
+				           }
+				           break;
+				      case '6':
+				    	  strType = JOptionPane.showInputDialog("Enter an account type (checking/savings):");
+				    	  strName = JOptionPane.showInputDialog("Enter an account name:");
+				    	  for(i=0; i<index; i++) {
+				    		  double m = 0;
+				    		  if(((Account)objArray[i]).getType().equals(strType) && ((Account)objArray[i]).getName().equals(strName)) {
+				    			  if ((((Account)objArray[i]).getType().compareTo("checking")) == 0) {
+				    				  m = (((CheckingAccount)objArray[i]).getYearEndBalance());
+				    			  } else if ((((Account)objArray[i]).getType().compareTo("savings")) == 0) {
+				    				  m = (((SavingsAccount)objArray[i]).getYearEndBalance());
+				    			  }
+				    		  }
+				    		  System.out.println("The year end balance for " + strType + " account called " + strName + " is " + fmt1.format(m));
+				    	  }		 	      
+			      	  }
+			}  
+       }
 }

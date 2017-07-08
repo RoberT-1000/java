@@ -20,10 +20,11 @@ public class TestRecipeFinder {
 				recipe = ins.readLine();
 				if (recipe.equals("stop")) { break; }
 				myRecipe.setRecipe(recipe);
-				System.out.println(myRecipe.readIngredients());
+				myRecipe.getIngredients();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				System.out.println("Invalid input.");
+				System.out.println("Invalid input type.");
+				System.exit(-1);
 			}
 		}
 		System.out.println("Bye!");

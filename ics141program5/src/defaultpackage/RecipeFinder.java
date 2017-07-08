@@ -8,24 +8,15 @@ public class RecipeFinder {
 	private String recipe;
 	private String ingredients;
 	private BufferedReader br;
-	private String filePath;
-	private String fileName;
 	
 	/*
 	 * class methods
 	 */
 	
 	/*
-	 * constructor method...initializes the value of two Strings...
-	 * 	- filePath
-	 * 	- fileName
+	 * constructor method...
 	 */
-	public RecipeFinder() {
-		// assigns value to filePath
-		this.filePath = "C:\\Users\\" + System.getProperty("user.name") + "\\Documents\\recipefile\\";
-		this.fileName = "recipefile.txt";
-		System.out.println(this.filePath + this.fileName);
-	}
+	public RecipeFinder() {	}
 	
 	// setting value for recipe, input in TestRecipeFinder and passed as an argument here
 	public void setRecipe (String recipe) {
@@ -37,7 +28,7 @@ public class RecipeFinder {
 	 */
 	public void getIngredients() {
 		String str;
-		try (BufferedReader br = new BufferedReader(new FileReader(this.filePath + this.fileName))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\" + System.getProperty("user.name") + "\\Documents\\recipefile\\recipefile.txt"))) {
 			// reading until we get #this.recipe
 			try {
 				do {

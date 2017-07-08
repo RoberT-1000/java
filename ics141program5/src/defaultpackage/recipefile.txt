@@ -1,2 +1,11 @@
-this file supports the java classes
+#appetizers
+vegetable, egg roll, mixed with cream cheese, add some Teriyaki chicken, half gallon of water. Cook 15 minutes.
 
+#chow mein
+white meat chicken, pork beef, shrimp, vegetable include greens, mushroom, carrots, banana, apple sauce, half gallon of water. Cook 15 minutes.
+
+#fried rice
+plain rice, pork, chicken, beef, shrimp, vegetable, vegetable, include greens, mushroom, carrots, banana, apple sauce, one ounce of vegetable oil. Add the oil to a wok first, using hot fire to cook the oil to hot and able to see slight smoke. Then add all the ingredients and mix them. Cook 15 minutes.
+
+#poultry dish
+Moo Goo Gai Pan, Chicken with Mushroom, Chicken with Black Bean Sauce, Chicken with Oyster Sauce, Curry Chicken with onion, Chicken with Pepper & Tomato, Chicken with Broccoli, Chicken with Mixed Vegetable, Sweet & Sour Chicken, Chicken with Garlic Sauce, Hunan Chicken, Szechuan Chicken

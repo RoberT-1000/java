@@ -1,6 +1,4 @@
-/*
- * this is the driver class
- */
+
 import java.io.*;
 
 public class RecipeFinder {
@@ -22,7 +20,7 @@ public class RecipeFinder {
 	
 	// setting value for recipe
 	public void setRecipe (String recipe) {
-		this.recipe = recipe;		
+		this.recipe = "#" + recipe;		
 	}
 	
 	// reading value for the 
@@ -31,14 +29,13 @@ public class RecipeFinder {
 		try (BufferedReader br = new BufferedReader(new FileReader("recipefile.txt"))) {
 			// reading until we get #this.recipe
 			try {
-				while ((str = br.readLine()) != null) {
-					System.out.println(str);
-					if (str.equals("#" + this.recipe)) {
+				do {
+					str = br.readLine();
+					if (str.equals(this.recipe)) {
 						this.ingredients = br.readLine();
-						br.close();
-						return (this.ingredients);
+						return this.ingredients;
 					}
-				} 
+				} while (str != null);
 				return ("Recipe could not be found.");
 			} catch (IOException recipenotfound) {
 				return ("Recipe " + this.recipe + " could not be found.");

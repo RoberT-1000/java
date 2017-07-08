@@ -1,6 +1,3 @@
-/*
- * this is the application class
- */
 
 import java.io.*;
 
@@ -22,13 +19,14 @@ public class TestRecipeFinder {
 			try {
 				recipe = ins.readLine();
 				if (recipe.equals("stop")) { break; }
+				myRecipe.setRecipe(recipe);
 				System.out.println(myRecipe.readIngredients());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				System.out.println("Invalid input.");
 			}
 		}
-		System.out.println("Bye");
+		System.out.println("Bye!");
 	}
 
 }
